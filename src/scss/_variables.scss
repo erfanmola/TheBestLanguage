@@ -1,0 +1,37 @@
+:root {
+    color-scheme: light dark;
+    --bg-color: #ffffff;
+    --text-color: #202530;
+    --color: #202530;
+    --scrollbar: darkgrey;
+    --hr: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0));
+    --shimmer-static-bg: #DDDBDD;
+    --dpxgithubrating-bg: #f6f8fa;
+    --dpxgithubrating-color: #24292f;
+    --dpxgithubrating-border: #d5d8da;
+    --dpxgithubrating-shadow: rgba(27,31,36,0.15), 0 1px 0 rgba(27,31,36,0.04), inset 0 1px 0 rgba(255,255,255,0.25);
+    --expandable-green-bg: #d1ecf1;
+    --expandable-green-color: #0c5460;
+    --expandable-green-border: #bee5eb;
+    --expandable-green-border-header: rgba(12, 84, 96, 0.425);
+    --expandable-blue-bg: #cce5ff;
+    --expandable-blue-color: #004085;
+    --expandable-blue-border: #b8daff;
+    --expandable-blue-border-header: rgba(0, 64, 133, 0.425);
+}
+
+body.dark {
+    --scrollbar: #455055;
+    --bg-color: #353535;
+    --text-color: #f0f0f0;
+    --color: #f0f0f0;
+    --hr: linear-gradient(to right, rgba(255,255,255, 0), rgba(255,255,255, 0.25), rgba(255,255,255, 0));
+    --shimmer-static-bg: #253035;
+    --dpxgithubrating-bg: #303530;
+    --dpxgithubrating-color: #f6f8fa;
+    --dpxgithubrating-border: #656565;
+    --expandable-green-bg: #afced3;
+    --expandable-green-color: #0c4752;
+    --expandable-blue-bg: #b4c8ff;
+    --expandable-blue-color: #003280;
+}
