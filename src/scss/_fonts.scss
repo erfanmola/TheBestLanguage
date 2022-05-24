@@ -38,27 +38,17 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-DP:before {
-    content: "\e900";
-  }
-  .icon-check:before {
-    content: "\e901";
-  }
-  .icon-figma:before {
-    content: "\e902";
-  }
-  .icon-life-buoy:before {
-    content: "\e903";
-  }
-  .icon-moon:before {
-    content: "\e904";
-  }
-  .icon-star:before {
-    content: "\e907";
-  }
-  .icon-sun:before {
-    content: "\e905";
-  }
-  .icon-x:before {
-    content: "\e906";
-  }
+@each $name, $content in (
+  "DP": "\e900",
+  "check": "\e901",
+  "figma": "\e902",
+  "life-buoy": "\e903",
+  "moon": "\e904",
+  "sun": "\e905",
+  "x": "\e906",
+  "star": "\e907"
+) {
+    .icon-#{$name}:before {
+        content: $content;
+    }
+}
