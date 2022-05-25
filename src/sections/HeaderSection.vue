@@ -9,9 +9,9 @@
                 <h1>{{ $route.meta.title }}</h1>
             </routerLink>
 
-            <ul v-once>
+            <ul>
                 <li title="حالت تیره/روشن" @click="ToggleMode()" id="toggle-mode">
-                    <i class="icon-sun"></i>
+                    <i :class="this.darkMode ? 'icon-sun' : 'icon-moon'"></i>
                 </li>
             </ul>
 
@@ -80,35 +80,30 @@
 <script>
 export default {
     name: 'HeaderSection',
+    data() {
+        return {
+            darkMode: false
+        }
+    },
     methods: {
 
         ToggleMode() {
 
-            if (document.body.classList.contains('dark')) {
-
-                this.SetMode('light');
-
-            }else{
-
-                this.SetMode('dark');
-
-            }
+            this.SetMode(this.darkMode ? 'light' : 'dark');
 
         },
 
         SetMode(mode, notify = true) {
 
-            if (mode === 'dark') {
+            this.darkMode = mode === 'dark'
 
-                document.body.classList.remove('light');
+            if (this.darkMode) {
+
                 document.body.classList.add('dark');
-                document.querySelector("#toggle-mode i").className = 'icon-moon';
 
             }else{
 
                 document.body.classList.remove('dark');
-                document.body.classList.add('light');
-                document.querySelector("#toggle-mode i").className = 'icon-sun';
 
             }
 
