@@ -74,12 +74,12 @@
 
         .expand {
             &-leave-active {
-                transition: max-height .5s ease-in-out;
+                transition: max-height .5s ease-out;
                 max-height: 9999px;
             }
 
             &-enter-active {
-                transition: max-height 1s ease-in-out;
+                transition: max-height 1s ease-in;
                 max-height: 9999px;
             }
 
