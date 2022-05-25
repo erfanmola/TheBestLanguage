@@ -1,13 +1,15 @@
 <template>
-    <article :class="['expandable', type]" @click="this.status = 'open'">
-        <header :class="this.status">
+    <article :class="['expandable', type]">
+        <header @click="this.expand = !this.expand">
             <i :class="icon"></i>
             <h2>{{ title }}</h2>
         </header>
-
-        <div v-if="status === 'open'">
-            <slot name="content"></slot>
-        </div>
+        
+        <transition name="expand">
+            <div v-if="this.expand">
+                <slot name="content"></slot>
+            </div>
+        </transition>
     </article>
 </template>
 
@@ -38,10 +40,7 @@
                 font-variation-settings: "wght" 500;
                 padding-right: 8px;
             }
-            
-            &.open {
-                border-bottom: 2px dashed;
-            }
+
         }
 
         > div {
@@ -50,6 +49,7 @@
             line-height: 2.5;
             text-align: justify;
             font-size: 1rem;
+            border-top: 2px dashed;
         }
 
         &.green {
@@ -72,7 +72,25 @@
             }
         }
 
+        .expand {
+            &-leave-active {
+                transition: max-height .5s ease-out;
+                max-height: 9999px;
+            }
+
+            &-enter-active {
+                transition: max-height 1s ease-in;
+                max-height: 9999px;
+                overflow-y: hidden;
+            }
+
+            &-enter-from, &-leave-to {
+                max-height: 0;
+            }
+        }
+
     }
+
 
 </style>
 
@@ -87,7 +105,7 @@ export default {
     data() {
 
         return {
-            status: 'close',
+            expand: false,
         }
 
     }
