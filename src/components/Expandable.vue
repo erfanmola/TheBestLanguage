@@ -1,11 +1,11 @@
 <template>
     <article :class="['expandable', type]">
-        <header @click="changeStat">
+        <header @click="expand = !expand;">
             <div class="sperator">
                 <i :class="icon"></i>
                 <h2>{{ title }}</h2>
             </div>
-            <span class="chevron-down"></span>
+            <span class="chevron-down" :class="{'active': expand}"></span>
         </header>
 
         <transition name="expand">
@@ -47,6 +47,14 @@ article {
 
         >.sperator {
             display: flex;
+        }
+
+        .chevron-down {
+            transition: transform .3s ease-in-out;
+        }
+
+        .chevron-down.active {
+            transform: rotate(180deg);
         }
 
     }
@@ -116,15 +124,5 @@ export default {
         }
 
     },
-    methods: {
-        changeStat() {
-            this.expand = !this.expand;
-            if (this.expand){
-                document.querySelector(".chevron-down").className = 'chevron-up';
-            } else {
-                document.querySelector(".chevron-up").className = 'chevron-down';
-            }
-        }
-    }
 }
 </script>
