@@ -75,7 +75,7 @@
 </template>
 
 <script>
-import ExpandableItem from '@/components/Expandable.vue';
+import ExpandableItem from '../components/Expandable.vue';
 
 export default {
     name: 'HomeView',
