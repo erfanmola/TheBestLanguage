@@ -12,7 +12,7 @@
             </header>
 
             <ul v-if="DevelopixProjectsList === null" id="shimmer-developix-projects-list">
-                <li class="shimmer" v-for="i in 6"></li>
+                <li class="shimmer" v-for="i in 6" v-bind:key = "i"></li>
             </ul>
 
             <ul v-else>
